@@ -1,0 +1,4 @@
+GCC=g++
+
+Checkpoint1:TestCheckpoint.o Point2D.o Vector2D.o
+    $(GCC) TestCheckpoint.o Point2D.o Vector2D.o
