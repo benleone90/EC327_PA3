@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Point2D.h"
 #include "Vector2D.h"
+#include "GameObject.h"
 using namespace std;
 
 int main()
