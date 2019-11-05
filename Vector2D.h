@@ -7,19 +7,9 @@ class Vector2D
     public:
     double x, y;
 
-    Vector2D() //Default Constructor
-    {
-        x = 0.0;
-        y = 0.0;
-    }
+    Vector2D(); //Default Constructor
 
-    Vector2D(double in_x, double in_y) //Constructor
-    {
-        x = in_x;
-        y = in_y;
-    }
-
-    
+    Vector2D(double in_x, double in_y); //Constructor  
 };
 
 ostream& operator<< (ostream& out, const Vector2D& obj); //Overloaded insertion prototype

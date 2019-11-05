@@ -3,6 +3,18 @@
 #include "Point2D.h"
 using namespace std;
 
+Point2D::Point2D() 
+{
+    x = 0.0;
+    y = 0.0;
+}
+
+Point2D::Point2D(double in_x, double in_y) //Constructor Definition
+{
+    x = in_x;
+    y = in_y;
+}
+
 double GetDistanceBetween(Point2D p1, Point2D p2) //GetDistanceBetween function
 {
     double distance = sqrt(pow((p2.x-p1.x),2)+pow((p2.y-p1.y),2));

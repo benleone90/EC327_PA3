@@ -2,6 +2,18 @@
 #include "Vector2D.h"
 using namespace std;
 
+Vector2D::Vector2D()
+{
+    x = 0.0;
+    y = 0.0;
+}
+
+Vector2D::Vector2D(double in_x, double in_y) //Constructor Definition
+{
+    x = in_x;
+    y = in_y;
+} 
+
 ostream& operator<< (ostream& out, const Vector2D& obj) //Overloaded insertion operator
 {
     out << "<" << obj.x << ", " << obj.y << ">" << endl;
