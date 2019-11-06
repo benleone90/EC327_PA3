@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "Point2D.h"
+#include "Vector2D.h"
 using namespace std;
 
 Point2D::Point2D() 
@@ -23,7 +24,7 @@ double GetDistanceBetween(Point2D p1, Point2D p2) //GetDistanceBetween function
 
 ostream& operator<< (ostream& out, const Point2D& obj) //Overloaded insertion operator
 {
-    out << "(" << obj.x << ", " << obj.y << ")" << endl;
+    out << "(" << obj.x << ", " << obj.y << ")";
     return out;
 }
 

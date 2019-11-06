@@ -9,7 +9,8 @@ int main()
     Point2D point1;
     Point2D point2;
     Vector2D vector1;
-    double d = 0;
+    double d = 4;
+    int q = 42;
 
     point1.x = 10;
     point1.y = 20;
@@ -29,5 +30,11 @@ int main()
     cout << vector1 / d;
 
     cout << GetDistanceBetween(point1, point2) << endl;
+    
+    GameObject test(point1, q, 'h');
+    cout << test.GetId() << endl;
+    cout << test.GetLocation() << endl;
+    cout << test.GetState() << endl;
+    test.ShowStatus();
     return 0;
 }

@@ -16,7 +16,7 @@ Vector2D::Vector2D(double in_x, double in_y) //Constructor Definition
 
 ostream& operator<< (ostream& out, const Vector2D& obj) //Overloaded insertion operator
 {
-    out << "<" << obj.x << ", " << obj.y << ">" << endl;
+    out << "<" << obj.x << ", " << obj.y << ">";
     return out;
 }
 

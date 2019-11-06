@@ -17,8 +17,8 @@ double GetDistanceBetween(Point2D, Point2D); //GetDistanceBetween prototype
 
 ostream& operator<< (ostream&, const Point2D&); //Overloaded insertion prototype
 
-Point2D operator+ (Point2D&, Vector2D&); //Overloading addition operator
+Point2D operator+ (Point2D&, Vector2D&); //Overloading addition prototype
 
-Vector2D operator- (Point2D&, Point2D&); //Overloading subtraction operator
+Vector2D operator- (Point2D&, Point2D&); //Overloading subtraction prototype
 
 #endif //Point2D_H

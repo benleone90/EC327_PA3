@@ -14,7 +14,7 @@ class GameObject
 
     int GetId();
 
-    bool GetState();
+    char GetState();
 
     void ShowStatus();
 
