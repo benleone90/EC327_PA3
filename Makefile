@@ -1,14 +1,19 @@
-Checkpoint1:TestCheckpoint1.o Point2D.o Vector2D.o
-    g++ TestCheckpoint1.o Point2D.o Vector2D.o
+GCC=g++
+
+Checkpoint1:TestCheckpoint1.o GameObject.o Point2D.o Vector2D.o
+	$(GCC) TestCheckpoint1.o GameObject.o Point2D.o Vector2D.o -o Checkpoint1
 
 TestCheckpoint1.o: TestCheckpoint1.cpp
-    g++ -c TestCheckpoint1.cpp
+	$(GCC) -c TestCheckpoint1.cpp
+
+GameObject.o: GameObject.cpp
+	$(GCC) -c GameObject.cpp
 
 Point2D.o: Point2D.cpp
-    g++ -c Point2D.cpp
+	$(GCC) -c Point2D.cpp
 
 Vector2D.o: Vector2D.cpp
-    g++ -c Point2D.cpp
+	$(GCC) -c Vector2D.cpp
 
 clean:
-    rm TestCheckpoint1.o Point2D.o Vector2D.o Checkpoint1
+	rm TestCheckpoint1.o GameObject.o Point2D.o Vector2D.o Checkpoint1
