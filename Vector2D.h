@@ -12,10 +12,10 @@ class Vector2D
     Vector2D(double in_x, double in_y); //Constructor  
 };
 
-ostream& operator<< (ostream& out, const Vector2D& obj); //Overloaded insertion prototype
+ostream& operator<< (ostream&, const Vector2D&); //Overloaded insertion prototype
 
-Vector2D operator* (Vector2D& v1, double d); //Overloaded multiplication prototype
+Vector2D operator* (Vector2D&, double); //Overloaded multiplication prototype
 
-Vector2D operator/ (Vector2D& v1, double d); //Overloaded division prototype
+Vector2D operator/ (Vector2D&, double); //Overloaded division prototype
 
 #endif //Vector2D_H

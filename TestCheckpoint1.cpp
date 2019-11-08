@@ -21,17 +21,17 @@ int main()
     vector1.x = 3;
     vector1.y = 4;
 
-    cout << point1;
-    cout << point2;
-    cout << vector1;
-    cout << point1 + vector1;
-    cout << point1 - point2;
-    cout << vector1 * d;
-    cout << vector1 / d;
+    cout << point1 << endl;
+    cout << point2 << endl;
+    cout << vector1 << endl;
+    cout << point1 + vector1 << endl;
+    cout << point1 - point2 << endl;
+    cout << vector1 * d << endl;
+    cout << vector1 / d << endl;
 
     cout << GetDistanceBetween(point1, point2) << endl;
     
-    GameObject test(point1, q, 'h');
+    GameObject test(point1, q, 'z');
     cout << test.GetId() << endl;
     cout << test.GetLocation() << endl;
     cout << test.GetState() << endl;
