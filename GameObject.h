@@ -6,9 +6,11 @@ using namespace std;
 class GameObject
 {
     public:
-    GameObject(char);
+    GameObject(); //Default Constructor
 
-    GameObject(Point2D, int, char);
+    GameObject(char); //Constructor
+
+    GameObject(Point2D, int, char); //Constructor
 
     Point2D GetLocation();
 

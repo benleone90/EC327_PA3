@@ -3,6 +3,12 @@
 #include "Point2D.h"
 using namespace std;
 
+GameObject::GameObject() //Default constructor
+{
+    id_num = 1;
+    state = '0';
+}
+
 GameObject::GameObject(char in_code)
 {
     display_code = in_code;
