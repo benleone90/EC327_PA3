@@ -5,7 +5,31 @@ using namespace std;
 
 class PokemonCenter: public Building
 {
+    public:
+    PokemonCenter(); //Default Constructor
 
+    PokemonCenter(Point2D, int, double, unsigned int); //Constructor
+
+    bool HasStaminaPoints();
+
+    unsigned int GetNumStaminaPointsRemaing();
+
+    bool ​CanAffordStaminaPoints(unsigned int, double);
+
+    double ​GetDollarCost(unsigned int);
+
+    unsigned int DistributeStamina(unsigned int);
+
+    bool Update();
+
+    void ShowStatus();
+
+    private:
+    unsigned int stamina_capacity;
+
+    unsigned int num_stamina_points_remaining;
+
+    double dollar_cost_per_stamina_point;
 };
 
 enum PokemonCenterStates

@@ -15,5 +15,8 @@ Point2D.o: Point2D.cpp
 Vector2D.o: Vector2D.cpp
 	$(GCC) -c Vector2D.cpp
 
+Building.o: Building.cpp
+	$(GCC) -c Building.cpp
+
 clean:
-	rm TestCheckpoint1.o GameObject.o Point2D.o Vector2D.o Checkpoint1
+	rm TestCheckpoint1.o Building.o GameObject.o Point2D.o Vector2D.o Checkpoint1
