@@ -5,8 +5,7 @@ using namespace std;
 
 GameObject::GameObject() //Default constructor
 {
-    id_num = 1;
-    state = '0';
+    display_code = ' ';
 }
 
 GameObject::GameObject(char in_code)
