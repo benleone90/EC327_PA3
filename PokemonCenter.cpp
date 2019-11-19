@@ -57,5 +57,34 @@ double PokemonCenter::​GetDollarCost(unsigned int stamina_points)
 
 unsigned int PokemonCenter::DistributeStamina(unsigned int points_needed)
 {
+    if (num_stamina_points_remaining >= points_needed)
+    {
+        return points_needed = num_stamina_points_remaining - points_needed;
+    } else
+    {
+        return num_stamina_points_remaining;
+        stamina_capacity = 0;
+    }
+}
 
+bool PokemonCenter::Update()
+{
+    if (stamina_capacity = 0)
+    {
+        state = NO_STAMINA_POINTS_AVAILABLE;
+        display_code = 'c';
+        cout << "PokemonCenter " << id_num << " has ran out of stamina points." << endl;
+        return true;
+    } else 
+    {
+        return false;
+    }
+}
+
+void PokemonCenter::ShowStatus()
+{
+    cout << "Pokemon Center Status: " << endl;
+    ShowStatus();
+    cout << "Pokemon dollars per stamina point: " << dollar_cost_per_stamina_point << endl;
+    cout << "Has " << num_stamina_points_remaining << " stamina point(s) remaining" << endl;
 }
