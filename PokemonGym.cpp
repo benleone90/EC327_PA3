@@ -1,5 +1,6 @@
 #include <iostream>
 #include "PokemonGym.h"
+#include "PokemonCenter.h"
 using namespace std;
 
 PokemonGym::PokemonGym() //Default Constructor
@@ -88,4 +89,15 @@ bool PokemonGym::IsBeaten()
     {
         return true;
     }
+}
+
+void PokemonGym::ShowStatus()
+{
+    cout << "Pokemon Gym Status: " << endl;
+    Building::ShowStatus();
+    cout << "Max number of training units: " << max_number_of_training_units << endl;
+    cout << "stamina cost per training unit: " << stamina_cost_per_training_unit << endl;
+    cout << "Pokemon dollars per training unit: " << dollar_cost_per_training_unit << endl;
+    cout << "Experience points per traingin unit: " << experience_points_per_training_unit << endl;
+    cout << num_training_units_remaining << " training unit(s) are remaining for this gym" << endl;
 }
