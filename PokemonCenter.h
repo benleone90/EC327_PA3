@@ -14,9 +14,9 @@ class PokemonCenter: public Building
 
     unsigned int GetNumStaminaPointsRemaing();
 
-    bool ​CanAffordStaminaPoints(unsigned int, double);
+    bool CanAffordStaminaPoints(unsigned int, double);
 
-    double ​GetDollarCost(unsigned int);
+    double GetDollarCost(unsigned int);
 
     unsigned int DistributeStamina(unsigned int);
 

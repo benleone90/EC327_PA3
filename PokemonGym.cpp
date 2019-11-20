@@ -71,7 +71,7 @@ unsigned int PokemonGym::TrainPokemon(unsigned int training_units)
 
 bool PokemonGym::Update()
 {
-    if (num_training_units_remaining = 0)
+    if ((num_training_units_remaining == 0) && (state == NOT_BEATEN))
     {
         state = BEATEN;
         display_code = 'g';
@@ -85,10 +85,14 @@ bool PokemonGym::Update()
 
 bool PokemonGym::IsBeaten()
 {
-    if (num_training_units_remaining = 0)
+    if (num_training_units_remaining == 0)
     {
         return true;
+    } else
+    {
+        return false;
     }
+    
 }
 
 void PokemonGym::ShowStatus()

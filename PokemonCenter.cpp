@@ -39,7 +39,7 @@ unsigned int PokemonCenter::GetNumStaminaPointsRemaing()
     return num_stamina_points_remaining;
 }
 
-bool PokemonCenter::​CanAffordStaminaPoints(unsigned int stamina_points, double budget)
+bool PokemonCenter::CanAffordStaminaPoints(unsigned int stamina_points, double budget)
 {
     if (budget >= (stamina_points * dollar_cost_per_stamina_point))
     {
@@ -50,7 +50,7 @@ bool PokemonCenter::​CanAffordStaminaPoints(unsigned int stamina_points, doubl
     }
 }
 
-double PokemonCenter::​GetDollarCost(unsigned int stamina_points)
+double PokemonCenter::GetDollarCost(unsigned int stamina_points)
 {
     return stamina_points * dollar_cost_per_stamina_point;
 }
@@ -69,7 +69,7 @@ unsigned int PokemonCenter::DistributeStamina(unsigned int points_needed)
 
 bool PokemonCenter::Update()
 {
-    if (stamina_capacity = 0)
+    if (stamina_capacity == 0)
     {
         state = NO_STAMINA_POINTS_AVAILABLE;
         display_code = 'c';

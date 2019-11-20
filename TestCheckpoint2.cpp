@@ -12,6 +12,6 @@ int main()
 
     GameObject test(Point2D(3,2), 3, 'c');
     
-    test.GetLocation();
+    cout << test.GetLocation()<< endl;
     return 0;
 }
