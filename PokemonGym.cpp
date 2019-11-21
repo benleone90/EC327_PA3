@@ -22,6 +22,7 @@ double dollar_cost, unsigned int exp_points_per_unit)
     state = NOT_BEATEN;
     id_num = in_id;
     max_number_of_training_units = max_training_units;
+    num_training_units_remaining = max_number_of_training_units;
     stamina_cost_per_training_unit = stamina_cost;
     experience_points_per_training_unit = exp_points_per_unit;
     dollar_cost_per_training_unit = dollar_cost;
@@ -100,7 +101,7 @@ void PokemonGym::ShowStatus()
     cout << "Pokemon Gym Status: " << endl;
     Building::ShowStatus();
     cout << "Max number of training units: " << max_number_of_training_units << endl;
-    cout << "stamina cost per training unit: " << stamina_cost_per_training_unit << endl;
+    cout << "Stamina cost per training unit: " << stamina_cost_per_training_unit << endl;
     cout << "Pokemon dollars per training unit: " << dollar_cost_per_training_unit << endl;
     cout << "Experience points per traingin unit: " << experience_points_per_training_unit << endl;
     cout << num_training_units_remaining << " training unit(s) are remaining for this gym" << endl;

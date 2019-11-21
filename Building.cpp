@@ -27,7 +27,13 @@ void Building::AddOnePokemon()
 
 void Building::RemoveOnePokemon()
 {
-    pokemon_count--;
+    if (pokemon_count > 0)
+    {
+        pokemon_count--;
+    } else
+    {
+        cout << "There are no Pokémon to remove" << endl;
+    }
 }
 
 void Building::ShowStatus()

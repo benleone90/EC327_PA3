@@ -19,6 +19,7 @@ PokemonCenter::PokemonCenter(Point2D in_loc, int in_id, double stamina_cost, uns
     location = in_loc;
     dollar_cost_per_stamina_point = stamina_cost;
     stamina_capacity = stamina_cap;
+    num_stamina_points_remaining = stamina_capacity;
     state = STAMINA_POINTS_AVAILABLE;
     cout << "PokemonCenter constructed" << endl;
 }
@@ -69,7 +70,7 @@ unsigned int PokemonCenter::DistributeStamina(unsigned int points_needed)
 
 bool PokemonCenter::Update()
 {
-    if (stamina_capacity == 0)
+    if ((stamina_capacity == 0) && (state == STAMINA_POINTS_AVAILABLE))
     {
         state = NO_STAMINA_POINTS_AVAILABLE;
         display_code = 'c';
