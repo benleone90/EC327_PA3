@@ -15,13 +15,13 @@ class Pokemon: public GameObject
 
     unsigned int stamina;
 
-    unsigned int experience_points;
+    unsigned int experience_points = 0;
 
     double pokemon_dollars;
 
     unsigned int training_units_to_buy;
 
-    
+
 
     protected:
 
