@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Point2D.h"
 #include "Vector2D.h"
-#include "GameObject.h"
 using namespace std;
 
 int main()
@@ -31,10 +30,5 @@ int main()
 
     cout << GetDistanceBetween(point1, point2) << endl;
     
-    GameObject test(point1, q, 'z');
-    cout << test.GetId() << endl;
-    cout << test.GetLocation() << endl;
-    cout << test.GetState() << endl;
-    test.ShowStatus();
     return 0;
 }
