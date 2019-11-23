@@ -25,9 +25,48 @@ Pokemon::Pokemon(Point2D in_loc, int in_id, char in_code, unsigned int in_speed,
     cout << "Pokemon constructed" << endl;
 }
 
+void Pokemon::StartMoving(Point2D dest)
+{
+    SetupDestination(dest);
+    state = MOVING;
+    if ((fabs(dest.x - location.x) <= delta.x) && (fabs(dest.y -location.y) <= delta.y))
+    {
+        cout << display_code << id_num << ": I'm already there. See?" << endl;
+    } else if (state == EXHAUSTED)
+    {
+        cout << display_code << id_num << ": I am exhaused. I may move but you cannont see me." << endl;
+    } else
+    {
+        cout << display_code << id_num << ": I'm on my way." << endl;
+    }
+}
+
 void Pokemon::ShowStatus()
 {
     cout << name << " status:" << endl;
     GameObject::ShowStatus();
+}
 
+// bool Pokemon::Update()
+// {
+
+// }
+
+bool Pokemon::UpdateLocation()
+{
+    if (state == MOVING)
+    {
+        location = location + delta;
+        cout << display_code << id_num << ": step..." << endl;
+    } else if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y -location.y) <= delta.y))
+    {
+        cout << display_code << id_num << ": I'm there!" << endl;
+    }
+    return 0;
+}
+
+void Pokemon::SetupDestination(Point2D)
+{
+    Vector2D distance_hold = destination - location;
+    delta = (distance_hold) * (speed / GetDistanceBetween(destination, location));
 }

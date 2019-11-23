@@ -4,6 +4,7 @@
 #include "PokemonCenter.h"
 #include "PokemonGym.h"
 #include <string>
+#include <math.h>
 
 class Pokemon: public GameObject
 {
@@ -14,7 +15,26 @@ class Pokemon: public GameObject
 
     Pokemon(Point2D, int, char, unsigned int, string);
 
+    void StartMoving(Point2D);
+
+    void StartMovingToCenter(PokemonCenter*);
+
+    void StartMovingToGym(PokemonGym*);
+
+    void StartTraining(unsigned int);
+
+    void StartRecoveringStamina(unsigned int);
+
+    void Stop();
+
+    bool IsExhaused();
+
+    bool ShouldBeVisible();
+
     void ShowStatus();
+
+    bool Update();
+    
 
     private:
     double speed;
@@ -45,8 +65,9 @@ class Pokemon: public GameObject
 
 
     protected:
+    bool UpdateLocation();
 
-
+    void SetupDestination(Point2D);
 };
 
 double GetRandomAmountOfPokemonDollars();

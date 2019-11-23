@@ -5,20 +5,13 @@ using namespace std;
 
 int main()
 {
-    Point2D point1;
-    Point2D point2;
-    Vector2D vector1;
+    Point2D point1(10, 20);
+    Point2D point2(5, 15);
+    Vector2D vector1(3, 4);
     double d = 4;
+    double test = 5;
     int q = 42;
-
-    point1.x = 10;
-    point1.y = 20;
-
-    point2.x = 5;
-    point2.y = 15;
-
-    vector1.x = 3;
-    vector1.y = 4;
+    Vector2D hold = point1 - point2;
 
     cout << point1 << endl;
     cout << point2 << endl;
@@ -27,6 +20,7 @@ int main()
     cout << point1 - point2 << endl;
     cout << vector1 * d << endl;
     cout << vector1 / d << endl;
+    cout << (hold) * (test / GetDistanceBetween(point1, point2)) << endl;
 
     cout << GetDistanceBetween(point1, point2) << endl;
     

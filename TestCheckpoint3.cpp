@@ -12,6 +12,7 @@ int main()
 
     Pokemon newguy('Q');
     newguy.ShowStatus();
+    test.StartMoving(Point2D(5,7));
 
     return 0;
 }

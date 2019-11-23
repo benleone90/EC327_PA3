@@ -1,6 +1,5 @@
 #include <iostream>
 #include "GameObject.h"
-#include "Point2D.h"
 using namespace std;
 
 GameObject::GameObject(char in_code)

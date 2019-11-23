@@ -40,4 +40,4 @@ Point2D.o: Point2D.cpp
 	$(GCC) -c Point2D.cpp
 
 clean:
-	rm PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o TestCheckpoint1.o TestCheckpoint2.o TestCheckpoint3.o Checkpoint1 Checkpoint2 Checkpoint3
+	rm Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o TestCheckpoint1.o TestCheckpoint2.o TestCheckpoint3.o Checkpoint1 Checkpoint2 Checkpoint3

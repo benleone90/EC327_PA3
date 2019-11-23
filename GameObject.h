@@ -1,6 +1,7 @@
 #ifndef GameObject_H
 #define GameObject_H
 #include "Point2D.h"
+#include "Vector2D.h"
 using namespace std;
 
 class GameObject

@@ -23,8 +23,8 @@ ostream& operator<< (ostream& out, const Vector2D& obj) //Overloaded insertion o
 Vector2D operator* (Vector2D& v1, double d) //Overloaded multiplication operator
 {
     Vector2D p3;
-    p3.x = v1.x * d;
-    p3.y = v1.y * d;
+    p3.x = (v1.x * d);
+    p3.y = (v1.y * d);
     return p3;
 }
 
@@ -36,8 +36,8 @@ Vector2D operator/ (Vector2D& v1, double d) //Overloaded division operator
     } else
     {
         Vector2D p3;
-        p3.x = v1.x / d;
-        p3.y = v1.y / d;
+        p3.x = (v1.x / d);
+        p3.y = (v1.y / d);
         return p3;
     }
 }
