@@ -41,7 +41,7 @@ class PokemonGym: public Building
 enum PokemonGymStates
 {
     NOT_BEATEN = '0',
-    BEATEN = '1'
+    BEATEN     = '1'
 };
 
 #endif //PokemonGym

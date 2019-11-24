@@ -65,8 +65,9 @@ bool Pokemon::UpdateLocation()
     return 0;
 }
 
-void Pokemon::SetupDestination(Point2D)
+void Pokemon::SetupDestination(Point2D dest)
 {
-    Vector2D distance_hold = destination - location;
-    delta = (distance_hold) * (speed / GetDistanceBetween(destination, location));
+    Vector2D dest_hold = dest - location;
+    delta = (dest_hold) * (speed / GetDistanceBetween(destination, location));
+    //cout << delta << endl;
 }

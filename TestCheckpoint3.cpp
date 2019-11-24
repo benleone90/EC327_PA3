@@ -12,7 +12,8 @@ int main()
 
     Pokemon newguy('Q');
     newguy.ShowStatus();
-    test.StartMoving(Point2D(5,7));
+    test.StartMoving(Point2D(4,3));
+    cout << test.GetState() << endl;
 
     return 0;
 }
