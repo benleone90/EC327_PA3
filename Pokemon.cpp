@@ -267,5 +267,5 @@ void Pokemon::SetupDestination(Point2D dest)
 double GetRandomAmountOfPokemonDollars()
 {
     srand(time(0));
-    return ((double)rand() % 2.0) + 1.0;
+    return 0.0 + (rand() / (RAND_MAX / 2.0 - 0.0));
 }
