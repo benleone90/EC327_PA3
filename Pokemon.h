@@ -5,6 +5,7 @@
 #include "PokemonGym.h"
 #include <string>
 #include <math.h>
+#include <time.h>
 
 class Pokemon: public GameObject
 {
@@ -62,7 +63,6 @@ class Pokemon: public GameObject
     Point2D destination;
 
     Vector2D delta;
-
 
     protected:
     bool UpdateLocation();

@@ -33,7 +33,7 @@ class PokemonGym: public Building
 
     unsigned int stamina_cost_per_training_unit;
 
-    unsigned int dollar_cost_per_training_unit;
+    double dollar_cost_per_training_unit;
 
     unsigned int experience_points_per_training_unit;
 };

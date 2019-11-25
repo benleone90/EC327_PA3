@@ -14,8 +14,8 @@ class Vector2D
 
 ostream& operator<< (ostream&, const Vector2D&); //Overloaded insertion prototype
 
-Vector2D operator* (Vector2D&, double); //Overloaded multiplication prototype
+Vector2D operator* (const Vector2D&, double); //Overloaded multiplication prototype
 
-Vector2D operator/ (Vector2D&, double); //Overloaded division prototype
+Vector2D operator/ (const Vector2D&, double); //Overloaded division prototype
 
 #endif //Vector2D_H
