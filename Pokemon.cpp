@@ -167,39 +167,45 @@ bool Pokemon::Update()
 
     case MOVING:
         UpdateLocation();
-        if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
+        if ((destination.x == location.x) && (destination.y == location.y))
         {
             state = STOPPED;
             return 1;
         } else
         {
             state = MOVING;
+            stamina = stamina - 1;
+            pokemon_dollars = pokemon_dollars + GetRandomAmountOfPokemonDollars();
             return 0;
         }
         break;
 
     case MOVING_TO_CENTER:
         UpdateLocation();
-        if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
+        if ((destination.x == location.x) && (destination.y == location.y))
         {
             state = IN_CENTER;
             return 1;
         } else
         {
             state = MOVING;
+            stamina = stamina - 1;
+            pokemon_dollars = pokemon_dollars + GetRandomAmountOfPokemonDollars();
             return 0;
         }
         break;
 
     case MOVING_TO_GYM:
         UpdateLocation();
-        if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
+        if ((destination.x == location.x) && (destination.y == location.y))
         {
             state = IN_GYM;
             return 1;
         } else
         {
             state = MOVING;
+            stamina = stamina - 1;
+            pokemon_dollars = pokemon_dollars + GetRandomAmountOfPokemonDollars();
             return 0;
         }
         break;
@@ -219,7 +225,7 @@ bool Pokemon::Update()
         experience_points = experience_points + current_gym->TrainPokemon(training_units_to_buy);
         cout << "** " << name << " completed " << training_units_to_buy << " training unit(s)! **" << endl;
         cout << "** " << name << " gained " << current_gym->TrainPokemon(training_units_to_buy) << " expereince point(s)! **" << endl;
-        return IN_GYM;
+        return 1;
         break;
 
     case RECOVERING_STAMINA:
@@ -227,7 +233,7 @@ bool Pokemon::Update()
         stamina = stamina + current_center->DistributeStamina(stamina_points_to_buy);
         pokemon_dollars = pokemon_dollars - current_center->GetDollarCost(stamina_points_to_buy);
         cout << "** " << name << " recovered " << current_center->DistributeStamina(stamina_points_to_buy) << " stamina point(s)! **" << endl;
-        return IN_CENTER;
+        return 1;
         break;
         
     default:
@@ -240,6 +246,8 @@ bool Pokemon::UpdateLocation()
 {
     if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
     {
+        location.x = destination.x;
+        location.y = destination.y;
         cout << display_code << id_num << ": I'm there!" << endl;
     } else
     {
@@ -261,7 +269,6 @@ void Pokemon::SetupDestination(Point2D dest)
     {    
         delta = (destination - location) * (speed / GetDistanceBetween(destination, location));
     }
-    //cout << delta << endl;
 }
 
 double GetRandomAmountOfPokemonDollars()

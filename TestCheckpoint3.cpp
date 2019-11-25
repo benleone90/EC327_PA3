@@ -5,17 +5,21 @@
 int main()
 {
     Pokemon test(Point2D(3,4), 69, 'P', 2, "PIKACHU");
-    // test.StartMoving(Point2D(6,4));
-    // test.ShowStatus();
-
     PokemonGym gym1(Point2D(2,3), 9, 2, 5, 10, 4);
-    test.StartMovingToGym(&gym1);
+    PokemonCenter center1(Point2D(6,9), 12, 5, 20);
+    test.ShowStatus();
+    test.StartMoving(Point2D(10,19));
+    test.Update();
     test.ShowStatus();
     test.Update();
-    cout << test.GetState() << endl;
-    cout << test.GetLocation() << endl;
+    test.ShowStatus();
+    test.Update();
+    test.ShowStatus();
+    test.Update();
+    test.ShowStatus();
+    
 
-    cout << GetRandomAmountOfPokemonDollars() << endl;
+    //cout << GetRandomAmountOfPokemonDollars() << endl;
 
     return 0;
 }
