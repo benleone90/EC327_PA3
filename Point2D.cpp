@@ -28,7 +28,7 @@ ostream& operator<< (ostream& out, const Point2D& obj) //Overloaded insertion op
     return out;
 }
 
-Point2D operator+ (Point2D& p1, Vector2D& v1) //Overloading addition operator
+Point2D operator+ (const Point2D&  p1, const Vector2D& v1) //Overloading addition operator
 {
     Point2D p2;
     p2.x = (p1.x + v1.x);
@@ -36,7 +36,7 @@ Point2D operator+ (Point2D& p1, Vector2D& v1) //Overloading addition operator
     return p2;
 }
 
-Vector2D operator- (Point2D& p1, Point2D& p2) //Overloading subtraction operator
+Vector2D operator- (const Point2D& p1, const Point2D& p2) //Overloading subtraction operator
 {
     Vector2D p3;
     p3.x = (p1.x - p2.x);

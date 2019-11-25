@@ -28,8 +28,9 @@ Pokemon::Pokemon(Point2D in_loc, int in_id, char in_code, unsigned int in_speed,
 void Pokemon::StartMoving(Point2D dest)
 {
     SetupDestination(dest);
+    cout << destination.x - location.x << endl;
     state = MOVING;
-    if ((fabs(dest.x - location.x) <= delta.x) && (fabs(dest.y -location.y) <= delta.y))
+    if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
     {
         cout << display_code << id_num << ": I'm already there. See?" << endl;
     } else if (state == EXHAUSTED)
@@ -43,14 +44,45 @@ void Pokemon::StartMoving(Point2D dest)
 
 void Pokemon::ShowStatus()
 {
-    cout << name << " status:" << endl;
+    cout << name << " status: ";
     GameObject::ShowStatus();
+    switch (state)
+    {
+    case STOPPED:
+        cout << " stopped" << endl;
+        cout << "\tStamina: " << stamina << endl;
+        cout << "\tPokemon Dollar: " << pokemon_dollars << endl;
+        cout << "\tExperience Points: " << experience_points << endl;
+        break;
+
+    case MOVING:
+        cout << " moving at a speed of " << speed << " to destination " << destination << " at each step of " << delta << "." << endl;
+        cout << "\tStamina: " << stamina << endl;
+        cout << "\tPokemon Dollar: " << pokemon_dollars << endl;
+        cout << "\tExperience Points: " << experience_points << endl;
+    
+    default:
+        break;
+    }
 }
 
-// bool Pokemon::Update()
-// {
+bool Pokemon::Update()
+{
+    switch (state)
+    {
+    case STOPPED:
+        return 0;
+        break;
 
-// }
+    case MOVING:
+        UpdateLocation();
+
+
+    default:
+        return 0;
+        break;
+    }
+}
 
 bool Pokemon::UpdateLocation()
 {
@@ -67,7 +99,8 @@ bool Pokemon::UpdateLocation()
 
 void Pokemon::SetupDestination(Point2D dest)
 {
-    Vector2D dest_hold = dest - location;
+    destination = dest;
+    Vector2D dest_hold = destination - location;
     delta = (dest_hold) * (speed / GetDistanceBetween(destination, location));
-    //cout << delta << endl;
+    cout << delta.x << endl;
 }

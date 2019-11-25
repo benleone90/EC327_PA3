@@ -4,16 +4,9 @@
 
 int main()
 {
-    Pokemon test(Point2D(4,3), 3, 'R', 2, "Bob");
-    test.ShowStatus();
-
-    Pokemon hello;
-    hello.ShowStatus();
-
-    Pokemon newguy('Q');
-    newguy.ShowStatus();
-    test.StartMoving(Point2D(4,3));
-    cout << test.GetState() << endl;
+    Pokemon test(Point2D(3,4), 3, 'P', 2, "PIKACHU");
+    test.StartMoving(Point2D(3,4));
+    //test.ShowStatus();
 
     return 0;
 }
