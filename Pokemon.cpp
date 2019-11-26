@@ -325,7 +325,6 @@ bool Pokemon::UpdateLocation()
         location = location + delta;
         cout << display_code << id_num << ": step..." << endl;
     }
-    
     return 0;
 }
 

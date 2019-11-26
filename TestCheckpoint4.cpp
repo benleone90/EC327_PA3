@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    Model test();
+    Model model();
     // bool run = 1;
     // char command;
     // int in_id;

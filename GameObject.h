@@ -27,6 +27,8 @@ class GameObject
 
     virtual bool ShouldBeVisible() = 0;
 
+    void DrawSelf(char*);
+
     protected:
     Point2D location;
 

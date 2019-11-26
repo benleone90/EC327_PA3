@@ -32,7 +32,7 @@ Model::Model()
 
 Model::~Model()
 {
-    for (int i = 0; i <= 10; i++)
+    for (int i = 0; i <= num_objects; i++)
     {
         delete object_ptrs[i];
     }
@@ -41,7 +41,7 @@ Model::~Model()
 
 Pokemon* Model::GetPokemonPtr(int id)
 {
-    for (int i = 0; i <= 10; i++)
+    for (int i = 0; i <= num_pokemon; i++)
     {
         if (id == pokemon_ptrs[i]->GetId())
         {
@@ -56,7 +56,7 @@ Pokemon* Model::GetPokemonPtr(int id)
 
 PokemonCenter* Model::GetPokemonCenterPtr(int id)
 {
-    for (int i = 0; i <= 10; i++)
+    for (int i = 0; i <= num_centers; i++)
     {
         if (id == center_ptrs[i]->GetId())
         {
@@ -71,7 +71,7 @@ PokemonCenter* Model::GetPokemonCenterPtr(int id)
 
 PokemonGym* Model::GetPokemonGymPtr(int id)
 {
-    for (int i = 0; i <= 10; i++)
+    for (int i = 0; i <= num_gyms; i++)
     {
         if (id == gym_ptrs[i]->GetId())
         {
@@ -88,7 +88,7 @@ bool Model::Update()
 {
     time = time + 1;
 
-    for (int i = 0; i <= 10; i++)
+    for (int i = 0; i <= num_objects; i++)
     {
         if (object_ptrs[i]->Update())
         {
@@ -112,7 +112,7 @@ bool Model::Update()
 
 void Model::ShowStatus()
 {
-    for (int i = 0; i <= 10; i++)
+    for (int i = 0; i <= num_objects; i++)
     {
         object_ptrs[i]->ShowStatus();
     }

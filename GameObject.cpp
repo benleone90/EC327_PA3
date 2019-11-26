@@ -43,3 +43,8 @@ void GameObject::ShowStatus()
 {
     cout << display_code << id_num << " at " << location;
 }
+
+void GameObject::DrawSelf(char* ptr)
+{
+    
+}
