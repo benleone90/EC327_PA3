@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Pokemon.h"
+using namespace std;
 
 int main()
 {

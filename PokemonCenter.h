@@ -10,6 +10,8 @@ class PokemonCenter: public Building
 
     PokemonCenter(Point2D, int, double, unsigned int); //Constructor
 
+    ~PokemonCenter();
+
     bool HasStaminaPoints();
 
     unsigned int GetNumStaminaPointsRemaing();

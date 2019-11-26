@@ -13,13 +13,19 @@ class GameObject
 
     GameObject(Point2D, int, char); //Constructor
 
+    virtual ~GameObject();
+
     Point2D GetLocation();
 
     int GetId();
 
     char GetState();
 
-    void ShowStatus();
+    virtual void ShowStatus();
+
+    virtual bool Update() = 0;
+
+    virtual bool ShouldBeVisible() = 0;
 
     protected:
     Point2D location;

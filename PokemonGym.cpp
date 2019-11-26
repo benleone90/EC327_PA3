@@ -30,6 +30,11 @@ double dollar_cost, unsigned int exp_points_per_unit)
     cout << "PokemonGym constructed" << endl;
 }
 
+PokemonGym::~PokemonGym()
+{
+    cout << "PokemonGym destructed" << endl;
+}
+
 double PokemonGym::GetDollarCost(unsigned int unit_qty)
 {
     return dollar_cost_per_training_unit * unit_qty;

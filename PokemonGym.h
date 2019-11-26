@@ -6,9 +6,11 @@ using namespace std;
 class PokemonGym: public Building
 {
     public:
-    PokemonGym();
+    PokemonGym(); //Default constructor
 
-    PokemonGym(Point2D, int, unsigned int, unsigned int, double, unsigned int);
+    PokemonGym(Point2D, int, unsigned int, unsigned int, double, unsigned int); //Constructor
+
+    ~PokemonGym(); //Destructor
 
     double GetDollarCost(unsigned int);
 

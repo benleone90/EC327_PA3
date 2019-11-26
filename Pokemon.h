@@ -6,6 +6,7 @@
 #include <string>
 #include <math.h>
 #include <time.h>
+using namespace std;
 
 class Pokemon: public GameObject
 {
@@ -15,6 +16,8 @@ class Pokemon: public GameObject
     Pokemon(char);
 
     Pokemon(Point2D, int, char, unsigned int, string);
+
+    virtual ~Pokemon();
 
     void StartMoving(Point2D);
 

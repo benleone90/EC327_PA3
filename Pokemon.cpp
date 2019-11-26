@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "Pokemon.h"
-#include "GameObject.h"
 using namespace std;
 
 Pokemon::Pokemon():GameObject::GameObject('P') //Default constructor
@@ -24,6 +23,11 @@ Pokemon::Pokemon(Point2D in_loc, int in_id, char in_code, unsigned int in_speed,
     name = in_name;
     state = STOPPED;
     cout << "Pokemon constructed" << endl;
+}
+
+Pokemon::~Pokemon()
+{
+    cout << "Pokemon destructed" << endl;
 }
 
 void Pokemon::StartMoving(Point2D dest)
@@ -96,9 +100,69 @@ void Pokemon::StartTraining(unsigned int num_training_units)
     } else if (current_gym->GetNumTrainingUnitsRemaining() > num_training_units)
     {
         training_units_to_buy = num_training_units;
+        state = TRAINING_IN_GYM;
+        cout << display_code << ": Started to train at Pokemon Gym " << current_gym->GetId() << " with " << training_units_to_buy << " training units." << endl;
     } else
     {
         training_units_to_buy = current_gym->GetNumTrainingUnitsRemaining();
+        state = TRAINING_IN_GYM;
+        cout << display_code << ": Started to train at Pokemon Gym " << current_gym->GetId() << " with " << training_units_to_buy << " training units." << endl;
+    }
+}
+
+void Pokemon::StartRecoveringStamina(unsigned int num_stamina_points)
+{
+    if (pokemon_dollars > current_center->GetDollarCost(num_stamina_points))
+    {
+        cout << display_code << id_num << ": Not enough money to recover stamina." << endl;
+    }
+    else if (current_center->HasStaminaPoints() == false)
+    {
+        cout << display_code << id_num << ": Cannont recover! No stamina points remaining in the Pokemon Center." << endl;
+    }
+    else if (state != IN_CENTER)
+    {
+        cout << display_code << id_num << ": I can only recover stamina at a Pokemon Center!" << endl;
+    }
+    else if (current_center->GetNumStaminaPointsRemaing() > num_stamina_points)
+    {
+        stamina_points_to_buy = current_center->GetNumStaminaPointsRemaing();
+        state = RECOVERING_STAMINA;
+        cout << display_code << id_num << ": Started recovering " << num_stamina_points << " stamina point(s) at Pokemon Center " << current_center->GetId() << endl;
+    }
+    else
+    {   
+        stamina_points_to_buy = num_stamina_points;
+        state = RECOVERING_STAMINA;
+        cout << display_code << id_num << ": Started recovering " << num_stamina_points << " stamina point(s) at Pokemon Center " << current_center->GetId() << endl;
+    }
+}
+
+void Pokemon::Stop()
+{
+    state = STOPPED;
+    cout << display_code << id_num << ": Stopping..." << endl;
+}
+
+bool Pokemon::IsExhaused()
+{
+    if (stamina == 0)
+    {
+        return 1;
+    } else
+    {
+        return 0;
+    }    
+}
+
+bool Pokemon::ShouldBeVisible()
+{
+    if (state != EXHAUSTED)
+    {
+        return 1;
+    } else
+    {
+        return 0;
     }
 }
 

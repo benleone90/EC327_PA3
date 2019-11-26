@@ -24,6 +24,11 @@ PokemonCenter::PokemonCenter(Point2D in_loc, int in_id, double stamina_cost, uns
     cout << "PokemonCenter constructed" << endl;
 }
 
+PokemonCenter::~PokemonCenter()
+{
+    cout << "PokemonCenter destructed" << endl;
+}
+
 bool PokemonCenter::HasStaminaPoints()
 {
     if (num_stamina_points_remaining >= 1)
