@@ -7,6 +7,16 @@ Pokemon::Pokemon():GameObject::GameObject('P') //Default constructor
 {
     name = "Pokemon";
     speed = 5.0;
+    is_in_gym = false;
+    is_in_center = false;
+    stamina = 20;
+    experience_points = 0;
+    pokemon_dollars = 0;
+    training_units_to_buy = 0;
+    stamina_points_to_buy = 0;
+    current_center = NULL;
+    current_gym = NULL;
+    state = STOPPED;
     cout << "Pokemon default constructed" << endl;
 }
 
@@ -15,6 +25,15 @@ Pokemon::Pokemon(char in_code):GameObject::GameObject(in_code)
     name = "Pokemon";
     speed = 5.0;
     display_code = in_code;
+    is_in_gym = false;
+    is_in_center = false;
+    stamina = 20;
+    experience_points = 0;
+    pokemon_dollars = 0;
+    training_units_to_buy = 0;
+    stamina_points_to_buy = 0;
+    current_center = NULL;
+    current_gym = NULL;
     state = STOPPED;
     cout << "Pokemon constructed" << endl;
 }
@@ -23,6 +42,15 @@ Pokemon::Pokemon(Point2D in_loc, int in_id, char in_code, unsigned int in_speed,
 {
     speed = in_speed;
     name = in_name;
+    is_in_gym = false;
+    is_in_center = false;
+    stamina = 20;
+    experience_points = 0;
+    pokemon_dollars = 0;
+    training_units_to_buy = 0;
+    stamina_points_to_buy = 0;
+    current_center = NULL;
+    current_gym = NULL;
     state = STOPPED;
     cout << "Pokemon constructed" << endl;
 }
@@ -259,7 +287,7 @@ bool Pokemon::Update()
             return 1;
         } else
         {
-            state = MOVING;
+            state = MOVING_TO_CENTER;
             stamina = stamina - 1;
             pokemon_dollars = pokemon_dollars + GetRandomAmountOfPokemonDollars();
             return 0;
@@ -274,7 +302,7 @@ bool Pokemon::Update()
             return 1;
         } else
         {
-            state = MOVING;
+            state = MOVING_TO_GYM;
             stamina = stamina - 1;
             pokemon_dollars = pokemon_dollars + GetRandomAmountOfPokemonDollars();
             return 0;

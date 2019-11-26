@@ -45,25 +45,25 @@ class Pokemon: public GameObject
     private:
     double speed;
 
-    bool is_in_gym = false;
+    bool is_in_gym;
 
-    bool is_in_center = false;
+    bool is_in_center;
 
-    unsigned int stamina = 20;
+    unsigned int stamina;
 
-    unsigned int experience_points = 0;
+    unsigned int experience_points;
 
-    double pokemon_dollars = 0;
+    double pokemon_dollars;
 
-    unsigned int training_units_to_buy = 0;
+    unsigned int training_units_to_buy;
 
-    unsigned int stamina_points_to_buy = 0;
+    unsigned int stamina_points_to_buy;
 
     string name;
 
-    PokemonCenter* current_center = NULL;
+    PokemonCenter* current_center;
 
-    PokemonGym* current_gym = NULL;
+    PokemonGym* current_gym;
 
     Point2D destination;
 

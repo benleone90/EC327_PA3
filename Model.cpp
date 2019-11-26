@@ -1,5 +1,5 @@
 #include <iostream>
-#include "model.h"
+#include "Model.h"
 #include "Pokemon.h"
 using namespace std;
 
@@ -7,17 +7,23 @@ Model::Model()
 {
     time = 0;
 
-    object_ptrs[0], pokemon_ptrs[0] = new Pokemon(Point2D(5,1), 1, 'P', 2, "Pikachu");
+    object_ptrs[0] = new Pokemon(Point2D(5,1), 1, 'P', 2, "Pikachu");
+    pokemon_ptrs[0] = new Pokemon(Point2D(5,1), 1, 'P', 2, "Pikachu");
 
-    object_ptrs[1], pokemon_ptrs[1] = new Pokemon(Point2D(10, 1), 2, 'P', 1, "Bulbasaur");
+    object_ptrs[1] = new Pokemon(Point2D(10, 1), 2, 'P', 1, "Bulbasaur");
+    pokemon_ptrs[1] = new Pokemon(Point2D(10, 1), 2, 'P', 1, "Bulbasaur");
 
-    object_ptrs[2], center_ptrs[0] = new PokemonCenter(Point2D(1,20), 1, 1, 100);
+    object_ptrs[2] = new PokemonCenter(Point2D(1,20), 1, 1, 100);
+    center_ptrs[0] = new PokemonCenter(Point2D(1,20), 1, 1, 100);
 
-    object_ptrs[3], center_ptrs[1] = new PokemonCenter(Point2D(10,20), 2, 2, 200);
+    object_ptrs[3] = new PokemonCenter(Point2D(10,20), 2, 2, 200);
+    center_ptrs[1] = new PokemonCenter(Point2D(10,20), 2, 2, 200);
 
-    object_ptrs[4], gym_ptrs[0] = new PokemonGym(Point2D(0,0), 1, 10, 1, 2, 10);
+    object_ptrs[4] = new PokemonGym(Point2D(0,0), 1, 10, 1, 2, 10);
+    gym_ptrs[0] = new PokemonGym(Point2D(0,0), 1, 10, 1, 2, 10);
 
-    object_ptrs[5], gym_ptrs[1] = new PokemonGym(Point2D(5,5), 2, 20, 5, 7.5, 8);
+    object_ptrs[5] = new PokemonGym(Point2D(5,5), 2, 20, 5, 7.5, 8);
+    gym_ptrs[1] = new PokemonGym(Point2D(5,5), 2, 20, 5, 7.5, 8);
 
     num_objects = 6;
 
@@ -41,9 +47,10 @@ Model::~Model()
 
 Pokemon* Model::GetPokemonPtr(int id)
 {
-    for (int i = 0; i <= num_pokemon; i++)
+    for (int i = 0; i < num_pokemon; i++)
     {
-        if (id == pokemon_ptrs[i]->GetId())
+        int temp_id = pokemon_ptrs[i]->GetId();
+        if (id == temp_id)
         {
             return pokemon_ptrs[i];
         }
