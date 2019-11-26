@@ -5,12 +5,14 @@ using namespace std;
 
 Pokemon::Pokemon():GameObject::GameObject('P') //Default constructor
 {
+    name = "Pokemon";
     speed = 5.0;
     cout << "Pokemon default constructed" << endl;
 }
 
 Pokemon::Pokemon(char in_code):GameObject::GameObject(in_code)
 {
+    name = "Pokemon";
     speed = 5.0;
     display_code = in_code;
     state = STOPPED;
@@ -142,6 +144,11 @@ void Pokemon::Stop()
 {
     state = STOPPED;
     cout << display_code << id_num << ": Stopping..." << endl;
+}
+
+string Pokemon::GetName()
+{
+    return name;
 }
 
 bool Pokemon::IsExhaused()

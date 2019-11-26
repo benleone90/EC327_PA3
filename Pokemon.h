@@ -31,6 +31,8 @@ class Pokemon: public GameObject
 
     void Stop();
 
+    string GetName();
+
     bool IsExhaused();
 
     bool ShouldBeVisible();
