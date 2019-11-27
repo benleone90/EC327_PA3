@@ -16,7 +16,7 @@ void View::Clear()
         for (int j = 0; j < view_maxsize; j++)
         {
             grid[i][j][0] = '.';
-            grid[i][j][0] = ' ';
+            grid[i][j][1] = ' ';
         }
     }
 }
@@ -53,7 +53,7 @@ void View::Draw()
         }
         else
         {
-            cout << " ";
+            cout << "  ";
         }
         for (int j = 0; j < size; j++)
         {
@@ -66,7 +66,7 @@ void View::Draw()
     }
     cout << " ";
     int temp = 0;
-    for (int i = 0; temp < view_maxsize; i++)
+    for (int i = 0; temp <= view_maxsize; i++)
     {
         if (i % int(scale) == 0)
         {
@@ -75,7 +75,7 @@ void View::Draw()
         }
         else
         {
-            cout << " ";
+            cout << "  ";
         }
     }
     cout << "\n";

@@ -7,23 +7,29 @@ Model::Model()
 {
     time = 0;
 
-    object_ptrs[0] = new Pokemon(Point2D(5,1), 1, 'P', 2, "Pikachu");
-    pokemon_ptrs[0] = new Pokemon(Point2D(5,1), 1, 'P', 2, "Pikachu");
+    Pokemon* p1 = new Pokemon(Point2D(5,1), 1, 'P', 2, "Pikachu");
+    object_ptrs[0] = p1;
+    pokemon_ptrs[0] = p1;
 
-    object_ptrs[1] = new Pokemon(Point2D(10, 1), 2, 'P', 1, "Bulbasaur");
-    pokemon_ptrs[1] = new Pokemon(Point2D(10, 1), 2, 'P', 1, "Bulbasaur");
+    Pokemon* p2 = new Pokemon(Point2D(10, 1), 2, 'P', 1, "Bulbasaur");
+    object_ptrs[1] = p2;
+    pokemon_ptrs[1] = p2;
 
-    object_ptrs[2] = new PokemonCenter(Point2D(1,20), 1, 1, 100);
-    center_ptrs[0] = new PokemonCenter(Point2D(1,20), 1, 1, 100);
+    PokemonCenter* c1 = new PokemonCenter(Point2D(1, 20), 1, 1, 100);
+    object_ptrs[2] = c1;
+    center_ptrs[0] = c1;
 
-    object_ptrs[3] = new PokemonCenter(Point2D(10,20), 2, 2, 200);
-    center_ptrs[1] = new PokemonCenter(Point2D(10,20), 2, 2, 200);
+    PokemonCenter* c2 = new PokemonCenter(Point2D(10, 20), 2, 2, 200);
+    object_ptrs[3] = c2;
+    center_ptrs[1] = c2;
 
-    object_ptrs[4] = new PokemonGym(Point2D(0,0), 1, 10, 1, 2, 10);
-    gym_ptrs[0] = new PokemonGym(Point2D(0,0), 1, 10, 1, 2, 10);
+    PokemonGym* g1 = new PokemonGym(Point2D(0, 0), 1, 10, 1, 2, 10);
+    object_ptrs[4] = g1;
+    gym_ptrs[0] = g1;
 
-    object_ptrs[5] = new PokemonGym(Point2D(5,5), 2, 20, 5, 7.5, 8);
-    gym_ptrs[1] = new PokemonGym(Point2D(5,5), 2, 20, 5, 7.5, 8);
+    PokemonGym* g2 = new PokemonGym(Point2D(5, 5), 2, 20, 5, 7.5, 8);
+    object_ptrs[5] = g2;
+    gym_ptrs[1] = g2;
 
     num_objects = 6;
 
@@ -49,7 +55,7 @@ Pokemon* Model::GetPokemonPtr(int id)
 {
     for (int i = 0; i < num_pokemon; i++)
     {
-        if (id == pokemon_ptrs[i]->GetId())
+        if (pokemon_ptrs[i]->GetId() == id)
         {
             return pokemon_ptrs[i];
         }
@@ -61,7 +67,7 @@ PokemonCenter* Model::GetPokemonCenterPtr(int id)
 {
     for (int i = 0; i < num_centers; i++)
     {
-        if (id == center_ptrs[i]->GetId())
+        if (center_ptrs[i]->GetId() == id)
         {
             return center_ptrs[i];
         }    
@@ -73,7 +79,7 @@ PokemonGym* Model::GetPokemonGymPtr(int id)
 {
     for (int i = 0; i < num_gyms; i++)
     {
-        if (id == gym_ptrs[i]->GetId())
+        if (gym_ptrs[i]->GetId() == id)
         {
             return gym_ptrs[i];
         }   
@@ -108,13 +114,17 @@ bool Model::Update()
 
 void Model::Display(View& view)
 {
-    view.Plot(*object_ptrs);
+    view.Clear();
+    for (int i = 0; i < num_objects; i++)
+    {
+        view.Plot(object_ptrs[i]);
+    }
     view.Draw();
 }
 
 void Model::ShowStatus()
 {
-    cout << time;
+    cout << "Time: "<< time << endl;
     for (int i = 0; i < num_objects; i++)
     {
         object_ptrs[i]->ShowStatus();

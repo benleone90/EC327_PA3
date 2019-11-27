@@ -1,55 +1,45 @@
-GCC=g++
+CC=g++ -g
 
-Checkpoint4: TestCheckpoint4.o GameCommand.o Model.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o
-	$(GCC) TestCheckpoint4.o GameCommand.o Model.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o -o Checkpoint4
+OBJS=main.o Building.o Point2D.o Vector2D.o GameObject.o GameCommand.o PokemonCenter.o Model.o Pokemon.o PokemonGym.o View.o
 
-Checkpoint3: TestCheckpoint3.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o
-	$(GCC) TestCheckpoint3.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o -o Checkpoint3
+default: PA3
 
-Checkpoint2: TestCheckpoint2.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o
-	$(GCC) TestCheckpoint2.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o -o Checkpoint2
+PA3: $(OBJS)
+	$(CC) -o PA3 $(OBJS) 
 
-Checkpoint1: TestCheckpoint1.o Vector2D.o Point2D.o
-	$(GCC) TestCheckpoint1.o Vector2D.o Point2D.o -o Checkpoint1
+Vector2D.o: Vector2D.cpp Vector2D.h
+	$(CC) -c Vector2D.cpp -o Vector2D.o 
+	
+Point2D.o: Point2D.cpp Point2D.h Vector2D.h
+	$(CC) -c Point2D.cpp -o Point2D.o 
 
-TestCheckpoint4.o: TestCheckpoint4.cpp
-	$(GCC) -c TestCheckpoint4.cpp
+Building.o: Building.cpp Building.h
+	$(CC) -c Building.cpp -o Building.o
 
-TestCheckpoint3.o: TestCheckpoint3.cpp
-	$(GCC) -c TestCheckpoint3.cpp
+GameObject.o: GameObject.cpp GameObject.h Point2D.h Vector2D.h
+	$(CC) -c GameObject.cpp -o GameObject.o 
 
-TestCheckpoint2.o: TestCheckpoint2.cpp
-	$(GCC) -c TestCheckpoint2.cpp
+PokemonCenter.o: PokemonCenter.cpp PokemonCenter.h GameObject.h Point2D.h
+	$(CC) -c PokemonCenter.cpp -o PokemonCenter.o
 
-TestCheckpoint1.o: TestCheckpoint1.cpp
-	$(GCC) -c TestCheckpoint1.cpp
+Model.o: Model.cpp Model.h GameObject.h Pokemon.h PokemonGym.h PokemonCenter.h View.h
+	$(CC) -c Model.cpp -o Model.o 
 
-GameCommand.o: GameCommand.cpp
-	$(GCC) -c GameCommand.cpp
+PokemonGym.o: PokemonGym.cpp PokemonGym.h GameObject.h Point2D.h
+	$(CC) -c PokemonGym.cpp -o PokemonGym.o
 
-Model.o: Model.cpp
-	$(GCC) -c Model.cpp
+View.o: View.cpp View.h GameObject.h Point2D.h
+	$(CC) -c View.cpp -o View.o 
 
-Pokemon.o: Pokemon.cpp
-	$(GCC) -c Pokemon.cpp
+Pokemon.o: Pokemon.cpp Pokemon.h GameObject.h Point2D.h Vector2D.h PokemonGym.h PokemonCenter.h
+	$(CC) -c Pokemon.cpp -o Pokemon.o
 
-PokemonGym.o: PokemonGym.cpp
-	$(GCC) -c PokemonGym.cpp
+GameCommand.o: GameCommand.cpp GameCommand.h Model.h GameObject.h Pokemon.h PokemonGym.h PokemonCenter.h
+	$(CC) -c GameCommand.cpp -o GameCommand.o
 
-PokemonCenter.o: PokemonCenter.cpp
-	$(GCC) -c PokemonCenter.cpp
+main.o: main.cpp Building.h Point2D.h Vector2D.h GameCommand.h PokemonCenter.h Model.h Pokemon.h PokemonGym.h GameObject.h View.h
+	$(CC) -c main.cpp
 
-Building.o: Building.cpp
-	$(GCC) -c Building.cpp
+clean: 
+	rm $(OBJS) PA3
 
-GameObject.o: GameObject.cpp
-	$(GCC) -c GameObject.cpp
-
-Vector2D.o: Vector2D.cpp
-	$(GCC) -c Vector2D.cpp
-
-Point2D.o: Point2D.cpp
-	$(GCC) -c Point2D.cpp
-
-clean:
-	rm GameCommand.o Model.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o TestCheckpoint1.o TestCheckpoint2.o TestCheckpoint3.o TestCheckpoint4.o Checkpoint1 Checkpoint2 Checkpoint3 Checkpoint4

@@ -20,7 +20,7 @@ Pokemon::Pokemon():GameObject::GameObject('P') //Default constructor
     cout << "Pokemon default constructed" << endl;
 }
 
-Pokemon::Pokemon(char in_code):GameObject::GameObject(in_code)
+Pokemon::Pokemon(char in_code):GameObject::GameObject(in_code) //Constructor
 {
     name = "Pokemon";
     speed = 5.0;

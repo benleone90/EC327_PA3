@@ -105,9 +105,9 @@ void PokemonGym::ShowStatus()
 {
     cout << "Pokemon Gym Status: " << endl;
     Building::ShowStatus();
-    cout << "Max number of training units: " << max_number_of_training_units << endl;
-    cout << "Stamina cost per training unit: " << stamina_cost_per_training_unit << endl;
-    cout << "Pokemon dollars per training unit: " << dollar_cost_per_training_unit << endl;
-    cout << "Experience points per traingin unit: " << experience_points_per_training_unit << endl;
-    cout << num_training_units_remaining << " training unit(s) are remaining for this gym" << endl;
+    cout << "\tMax number of training units: " << max_number_of_training_units << endl;
+    cout << "\tStamina cost per training unit: " << stamina_cost_per_training_unit << endl;
+    cout << "\tPokemon dollars per training unit: " << dollar_cost_per_training_unit << endl;
+    cout << "\tExperience points per traingin unit: " << experience_points_per_training_unit << endl;
+    cout << "\t" << num_training_units_remaining << " training unit(s) are remaining for this gym" << endl;
 }
