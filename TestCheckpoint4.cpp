@@ -1,11 +1,11 @@
 #include <iostream>
-#include "model.h"
+#include "Model.h"
 #include "GameCommand.h"
 using namespace std;
 
 int main()
 {
-    Model model();
+    Model test;
     // bool run = 1;
     // char command;
     // int in_id;

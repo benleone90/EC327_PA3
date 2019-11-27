@@ -38,7 +38,7 @@ Model::Model()
 
 Model::~Model()
 {
-    for (int i = 0; i <= num_objects; i++)
+    for (int i = 0; i < num_objects; i++)
     {
         delete object_ptrs[i];
     }
@@ -49,53 +49,43 @@ Pokemon* Model::GetPokemonPtr(int id)
 {
     for (int i = 0; i < num_pokemon; i++)
     {
-        int temp_id = pokemon_ptrs[i]->GetId();
-        if (id == temp_id)
+        if (id == pokemon_ptrs[i]->GetId())
         {
             return pokemon_ptrs[i];
         }
-        else
-        {
-            return 0;
-        }    
     }
+    return 0;
 }
 
 PokemonCenter* Model::GetPokemonCenterPtr(int id)
 {
-    for (int i = 0; i <= num_centers; i++)
+    for (int i = 0; i < num_centers; i++)
     {
         if (id == center_ptrs[i]->GetId())
         {
             return center_ptrs[i];
-        }
-        else
-        {
-            return 0;
         }    
     }
+    return 0;
 }
 
 PokemonGym* Model::GetPokemonGymPtr(int id)
 {
-    for (int i = 0; i <= num_gyms; i++)
+    for (int i = 0; i < num_gyms; i++)
     {
         if (id == gym_ptrs[i]->GetId())
         {
             return gym_ptrs[i];
-        }
-        else
-        {
-            return 0;
-        }    
+        }   
     }
+    return 0;
 }
 
 bool Model::Update()
 {
     time = time + 1;
 
-    for (int i = 0; i <= num_objects; i++)
+    for (int i = 0; i < num_objects; i++)
     {
         if (object_ptrs[i]->Update())
         {
@@ -113,13 +103,14 @@ bool Model::Update()
         cout << "GAME OVER: You lose! All of your Pokemon are tired!" << endl;
         exit(0);
     }
+    return 0;
 }
 
 //void Model::Display(View& view);
 
 void Model::ShowStatus()
 {
-    for (int i = 0; i <= num_objects; i++)
+    for (int i = 0; i < num_objects; i++)
     {
         object_ptrs[i]->ShowStatus();
     }

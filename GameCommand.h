@@ -1,7 +1,7 @@
 #ifndef GameCommand_H
 #define GameCommand_H
 #include <iostream>
-#include "model.h"
+#include "Model.h"
 using namespace std;
 
 void DoMoveCommand(Model&, int, Point2D);

@@ -1,6 +1,7 @@
 GCC=g++
 
 Checkpoint4: TestCheckpoint4.o GameCommand.o Model.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o
+	$(GCC) TestCheckpoint4.o GameCommand.o Model.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o -o Checkpoint4
 
 Checkpoint3: TestCheckpoint3.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o
 	$(GCC) TestCheckpoint3.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o -o Checkpoint3
@@ -51,4 +52,4 @@ Point2D.o: Point2D.cpp
 	$(GCC) -c Point2D.cpp
 
 clean:
-	rm Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o TestCheckpoint1.o TestCheckpoint2.o TestCheckpoint3.o Checkpoint1 Checkpoint2 Checkpoint3
+	rm GameCommand.o Model.o Pokemon.o PokemonGym.o PokemonCenter.o Building.o GameObject.o Point2D.o Vector2D.o TestCheckpoint1.o TestCheckpoint2.o TestCheckpoint3.o TestCheckpoint4.o Checkpoint1 Checkpoint2 Checkpoint3 Checkpoint4
