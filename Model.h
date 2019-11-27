@@ -5,6 +5,7 @@
 #include "PokemonCenter.h"
 #include "PokemonGym.h"
 #include "Pokemon.h"
+#include "View.h"
 using namespace std;
 
 class Model
@@ -22,7 +23,7 @@ class Model
 
     bool Update();
 
-    //void Display(View&);
+    void Display(View&);
 
     void ShowStatus();
 

@@ -6,26 +6,36 @@ using namespace std;
 int main()
 {
     Model test;
-    // bool run = 1;
-    // char command;
-    // int in_id;
-    // Point2D example();
+    bool run = 1;
+    char command;
+    int in_id;
+    int obj_id;
+    Point2D m;
     
-    // while (run)
-    // {
-    //     cout << "Enter command: ";
-    //     cin >> command >> in_id >> ;
+    while (run)
+    {
+        cout << "Enter command: ";
+        cin >> command;
 
-    //     switch (command)
-    //     {
-    //     case 'm':
-    //         DoMoveCommand(test, 
-    //         break;
+        switch (command)
+        {
+        case 'm':
+            cin >> in_id >> m.x >> m.y;
+            DoMoveCommand(test, in_id, m);
+            break;
+
+        case 'g':
+            cin >> in_id >> obj_id;
+            DoMoveToGymCommand(test, in_id, obj_id);
+            break;
+            
+        case 'q':
+            exit(0);
         
-    //     default:
-    //         break;
-    //     }
-    // }
+        default:
+            break;
+        }
+    }
     
 
     return 0;

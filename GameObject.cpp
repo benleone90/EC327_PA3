@@ -46,5 +46,6 @@ void GameObject::ShowStatus()
 
 void GameObject::DrawSelf(char* ptr)
 {
-    
+    ptr[0] = display_code;
+    ptr[1] = (char)(id_num + '0'); //Making id_num ASCII
 }

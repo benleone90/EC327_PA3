@@ -106,10 +106,15 @@ bool Model::Update()
     return 0;
 }
 
-//void Model::Display(View& view);
+void Model::Display(View& view)
+{
+    view.Plot(*object_ptrs);
+    view.Draw();
+}
 
 void Model::ShowStatus()
 {
+    cout << time;
     for (int i = 0; i < num_objects; i++)
     {
         object_ptrs[i]->ShowStatus();

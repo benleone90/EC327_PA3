@@ -76,3 +76,17 @@ void DoRecoverInCenterCommand(Model& model, int pokemon_id, unsigned stamina_poi
         cout << "Error: Please enter valid command!" << endl;
     }
 }
+
+void DoGoCommand(Model& model, View& view)
+{
+    model.Update();
+    model.Display(view);
+    cout << "Advancing one tick." << endl;
+}
+
+void DoRunCommand(Model& model, View& view)
+{
+    model.Update();
+    model.Display(view);
+    cout << "Advancing to next event." << endl;
+}

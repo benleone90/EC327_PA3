@@ -310,10 +310,12 @@ bool Pokemon::Update()
         break;
 
     case IN_CENTER:
+        current_center->AddOnePokemon();
         return 0;
         break;
 
     case IN_GYM:
+        current_gym->AddOnePokemon();
         return 0;
         break;
 
