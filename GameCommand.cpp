@@ -16,7 +16,7 @@ void DoMoveCommand(Model& model, int pokemon_id, Point2D p1)
     }    
 }
 
-void DoMoveToCenter(Model& model, int pokemon_id, int center_id)
+void DoMoveToCenterCommand(Model& model, int pokemon_id, int center_id)
 {
     if ((model.GetPokemonCenterPtr(center_id)) && (model.GetPokemonPtr(pokemon_id)))
     {
@@ -88,7 +88,18 @@ void DoGoCommand(Model& model, View& view)
 
 void DoRunCommand(Model& model, View& view)
 {
-    model.Update();
+    if (model.Update())
+    {
+        model.Display(view);
+    }
+    else
+    {
+        model.Update();
+        model.Update();
+        model.Update();
+        model.Update();
+        model.Update();
+    }
     model.Display(view);
     cout << "Advancing to next event." << endl;
 }

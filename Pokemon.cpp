@@ -81,6 +81,8 @@ void Pokemon::StartMoving(Point2D dest)
 
 void Pokemon::StartMovingToCenter(PokemonCenter* center)
 {
+    /*Can't get Pokemon to stop at center. The location should be the same
+    as the Center but it won't do it and I don't know why. I give up.*/
     current_center = center;
     SetupDestination(current_center->GetLocation());
     if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
@@ -99,8 +101,10 @@ void Pokemon::StartMovingToCenter(PokemonCenter* center)
     }
 }
 
-void Pokemon::StartMovingToGym(PokemonGym* gym)
+void Pokemon::StartMovingToGym(PokemonGym* gym) 
 {
+    /*Can't get Pokemon to stop at gym. The location should be the same
+    as the Gym but it won't do it and I don't know why. I give up.*/
     current_gym = gym;
     SetupDestination(current_gym->GetLocation());
     if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))

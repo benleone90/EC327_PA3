@@ -7,7 +7,7 @@ using namespace std;
 
 void DoMoveCommand(Model&, int, Point2D);
 
-void DoMoveToCenter(Model&, int, int);
+void DoMoveToCenterCommand(Model&, int, int);
 
 void DoMoveToGymCommand(Model&, int, int);
 
