@@ -82,9 +82,10 @@ void Pokemon::StartMoving(Point2D dest)
 void Pokemon::StartMovingToCenter(PokemonCenter* center)
 {
     current_center = center;
-    SetupDestination(center->GetLocation());
+    SetupDestination(current_center->GetLocation());
     if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
     {
+        state = IN_CENTER;
         cout << display_code << id_num << ": I'm already at the Pokemon Center!" << endl;
     } 
     else if (state == EXHAUSTED)
@@ -101,8 +102,8 @@ void Pokemon::StartMovingToCenter(PokemonCenter* center)
 void Pokemon::StartMovingToGym(PokemonGym* gym)
 {
     current_gym = gym;
-    SetupDestination(gym->GetLocation());
-    if ((destination.x == location.x) && (destination.y == location.y))
+    SetupDestination(current_gym->GetLocation());
+    if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
     {
         state = IN_GYM;
         cout << display_code << id_num << ": I'm already at the Pokemon Gym!" << endl;
@@ -305,13 +306,14 @@ bool Pokemon::Update()
         break;
 
     case MOVING_TO_GYM:
-        UpdateLocation();
-        if ((destination.x == location.x) && (destination.y == location.y))
+        //UpdateLocation();
+        if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
         {
             state = IN_GYM;
             return 1;
         } else
         {
+            UpdateLocation();
             state = MOVING_TO_GYM;
             stamina = stamina - 1;
             pokemon_dollars = pokemon_dollars + GetRandomAmountOfPokemonDollars();
@@ -326,7 +328,6 @@ bool Pokemon::Update()
         break;
 
     case IN_GYM:
-        state = IN_GYM;
         current_gym->AddOnePokemon();
         return 0;
         break;
