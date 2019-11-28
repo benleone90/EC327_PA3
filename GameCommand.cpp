@@ -8,6 +8,7 @@ void DoMoveCommand(Model& model, int pokemon_id, Point2D p1)
     if (model.GetPokemonPtr(pokemon_id))
     {
         cout << "Moving " << model.GetPokemonPtr(pokemon_id)->GetName() << " to " << p1 << endl;
+        model.GetPokemonPtr(pokemon_id)->StartMoving(p1);
     }
     else
     {
@@ -32,6 +33,7 @@ void DoMoveToGymCommand(Model& model, int pokemon_id, int gym_id)
     if ((model.GetPokemonGymPtr(gym_id)) && (model.GetPokemonPtr(pokemon_id)))
     {
         cout << "Moving " << model.GetPokemonPtr(pokemon_id)->GetName() << " to gym " << gym_id << endl;
+        model.GetPokemonPtr(pokemon_id)->StartMovingToGym(model.GetPokemonGymPtr(gym_id));
     }
     else
     {

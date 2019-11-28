@@ -32,7 +32,7 @@ void Building::RemoveOnePokemon()
         pokemon_count--;
     } else
     {
-        cout << "There are no Pokémon to remove" << endl;
+        cout << "There are no Pokemon to remove" << endl;
     }
 }
 
@@ -41,10 +41,10 @@ void Building::ShowStatus()
     cout << display_code << id_num << " at " << location << endl;
     if (pokemon_count < 1 || pokemon_count > 1)
     {
-        cout << "\t" << pokemon_count << " Pokémon are in this building" << endl;
+        cout << "\t" << pokemon_count << " Pokemon are in this building" << endl;
     } else
     {
-        cout << "\t" << pokemon_count << " Pokémon is in this building" << endl;
+        cout << "\t" << pokemon_count << " Pokemon is in this building" << endl;
     }   
 }
 

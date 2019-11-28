@@ -12,33 +12,41 @@ int main()
 
     m->ShowStatus();
     m->Display(*v);
-
-    cout << m->GetPokemonPtr(1)->GetLocation() << endl;
-
     
     while (run)
     {   
-        //cout << "Enter command: ";
-        //cin >> command;
+        cout << "Enter command: ";
+        cin >> command;
+        int in_id;
+        int obj_id;
+        Point2D move;
+    
 
-        // switch (command)
-        // {
-        // case 'm':
-        //     cin >> in_id >> m.x >> m.y;
-        //     DoMoveCommand(test, in_id, m);
-        //     break;
+        switch (command)
+        {
+        case 'm':
+            cin >> in_id >> move.x >> move.y;
+            DoMoveCommand(*m, in_id, move);
+            m->Display(*v);
+            break;
 
-        // case 'g':
-        //     cin >> in_id >> obj_id;
-        //     DoMoveToGymCommand(test, in_id, obj_id);
-        //     break;
+        case 'g':
+            cin >> in_id >> obj_id;
+            DoMoveToGymCommand(*m, in_id, obj_id);
+            m->Display(*v);
+            break;
+
+        case 'v':
+            DoGoCommand(*m, *v);
+            m->ShowStatus();
+            break;
             
-        // case 'q':
-        //     exit(0);
+        case 'q':
+            exit(0);
         
-        // default:
-        //     break;
-        // }
+        default:
+            break;
+        }
     }
     
 

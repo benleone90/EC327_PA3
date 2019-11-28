@@ -65,14 +65,17 @@ void Pokemon::StartMoving(Point2D dest)
     SetupDestination(dest);
     if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
     {
+        state = STOPPED;
         cout << display_code << id_num << ": I'm already there. See?" << endl;
-    } else if (state == EXHAUSTED)
+    } 
+    else if (state == EXHAUSTED)
     {
         cout << display_code << id_num << ": I am exhaused. I may move but you cannot see me." << endl;
-    } else
+    } 
+    else
     {
         state = MOVING;
-        cout << display_code << id_num << ": I'm on my way." << endl;
+        cout << display_code << id_num << ": On my way." << endl;
     }
 }
 
@@ -83,13 +86,15 @@ void Pokemon::StartMovingToCenter(PokemonCenter* center)
     if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
     {
         cout << display_code << id_num << ": I'm already at the Pokemon Center!" << endl;
-    } else if (state == EXHAUSTED)
+    } 
+    else if (state == EXHAUSTED)
     {
         cout << display_code << id_num << ": I am exhaused so I can't move to recover stamina..." << endl;
-    } else
+    } 
+    else
     {
         state = MOVING_TO_CENTER;
-        cout << display_code << id_num << ": on my way to center " << center->GetId() << endl;
+        cout << display_code << id_num << ": On my way to center " << center->GetId() << endl;
     }
 }
 
@@ -97,16 +102,19 @@ void Pokemon::StartMovingToGym(PokemonGym* gym)
 {
     current_gym = gym;
     SetupDestination(gym->GetLocation());
-    if ((fabs(destination.x - location.x) <= delta.x) && (fabs(destination.y - location.y) <= delta.y))
+    if ((destination.x == location.x) && (destination.y == location.y))
     {
+        state = IN_GYM;
         cout << display_code << id_num << ": I'm already at the Pokemon Gym!" << endl;
-    } else if (state == EXHAUSTED)
+    } 
+    else if (state == EXHAUSTED)
     {
         cout << display_code << id_num << ": I am exhaused so I shouldn't be going to the gym..." << endl;
-    } else
+    } 
+    else
     {
         state = MOVING_TO_GYM;
-        cout << display_code << id_num << ": on my way to gym " << gym->GetId() << endl;
+        cout << display_code << id_num << ": On my way to gym " << gym->GetId() << endl;
     }
 }
 
@@ -184,7 +192,8 @@ bool Pokemon::IsExhaused()
     if (stamina == 0)
     {
         return 1;
-    } else
+    } 
+    else
     {
         return 0;
     }    
@@ -195,7 +204,8 @@ bool Pokemon::ShouldBeVisible()
     if (state != EXHAUSTED)
     {
         return 1;
-    } else
+    } 
+    else
     {
         return 0;
     }
@@ -310,11 +320,13 @@ bool Pokemon::Update()
         break;
 
     case IN_CENTER:
+        state = IN_CENTER;
         current_center->AddOnePokemon();
         return 0;
         break;
 
     case IN_GYM:
+        state = IN_GYM;
         current_gym->AddOnePokemon();
         return 0;
         break;
