@@ -90,26 +90,41 @@ PokemonGym* Model::GetPokemonGymPtr(int id)
 bool Model::Update()
 {
     time = time + 1;
-
+    bool updated = false;
     for (int i = 0; i < num_objects; i++)
     {
         if (object_ptrs[i]->Update())
         {
-            return 1;
+            updated = true;
         }
     }
-
-    if (num_gyms == 0)
+    int total_gym = 0;
+    for (int i = 0; i < num_gyms; ++i)
     {
-        cout << "GAME OVER: You win! All Pokemon Gyms beaten!" << endl;
-        exit(0);
+        if (gym_ptrs[i]->IsBeaten() == true)
+        {
+            total_gym++;
+            if (total_gym == num_gyms)
+            {
+                cout << "GAME OVER: You win! All Pokemon Gyms beaten!" << endl;
+                exit(0);
+            }
+        }
     }
-    else if (num_pokemon == 0)
+    int tired_pokemon = 0;
+    for (int i = 0; i < num_pokemon; i++)
     {
-        cout << "GAME OVER: You lose! All of your Pokemon are tired!" << endl;
-        exit(0);
+        if (pokemon_ptrs[i]->IsExhaused() == true)
+        {
+            tired_pokemon++;
+            if (tired_pokemon == num_pokemon)
+            {
+                cout << "GAME OVER: You lose! All of your Pokemong are tired!" << endl;
+                exit(0);
+            }   
+        }
     }
-    return 0;
+    return updated;
 }
 
 void Model::Display(View& view)
