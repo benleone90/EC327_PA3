@@ -5,15 +5,15 @@ using namespace std;
 View::View()
 {
     size = 11;
-    scale = 2;
+    scale = 2.0;
     origin = Point2D();
 }
 
 void View::Clear()
 {
-    for (int i = 0; i < view_maxsize; i++)
+    for (int i = 0; i < view_maxsize; ++i)
     {
-        for (int j = 0; j < view_maxsize; j++)
+        for (int j = 0; j < view_maxsize; ++j)
         {
             grid[i][j][0] = '.';
             grid[i][j][1] = ' ';
@@ -62,9 +62,9 @@ void View::Draw()
                 cout << right << grid[i][j][k];
             }
         }
-        cout << "\n";
+        cout << '\n';
     }
-    cout << " ";
+    cout << "  ";
     int temp = 0;
     for (int i = 0; temp <= view_maxsize; i++)
     {
@@ -78,23 +78,23 @@ void View::Draw()
             cout << "  ";
         }
     }
-    cout << "\n";
+    cout << '\n';
 }
 
-bool View::GetSubscripts(int& out_x, int& out_y, Point2D location)
+bool View::GetSubscripts(int &out_x, int &out_y, Point2D location)
 {
     int x = (location.x - origin.x) / scale;
-    int y = (location.x - origin.x) / scale;
+    int y = (location.y - origin.y) / scale;
 
     if ((x <= view_maxsize) && (y <= view_maxsize))
     {
         out_x = x;
         out_y = y;
-        return 1;
+        return true;
     }
     else
     {
         cout << "An object is outside the display." << endl;
-        return 0;
+        return false;
     }    
 }

@@ -12,11 +12,14 @@ int main()
 
     m->ShowStatus();
     m->Display(*v);
+
+    cout << m->GetPokemonPtr(1)->GetLocation() << endl;
+
     
     while (run)
     {   
-        cout << "Enter command: ";
-        cin >> command;
+        //cout << "Enter command: ";
+        //cin >> command;
 
         // switch (command)
         // {

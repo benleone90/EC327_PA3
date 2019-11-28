@@ -89,7 +89,7 @@ bool PokemonCenter::Update()
 
 void PokemonCenter::ShowStatus()
 {
-    cout << "Pokemon Center Status: " << endl;
+    cout << "Pokemon Center Status: ";
     Building::ShowStatus();
     cout << "\tPokemon dollars per stamina point: " << dollar_cost_per_stamina_point << endl;
     cout << "\tHas " << num_stamina_points_remaining << " stamina point(s) remaining" << endl;
